@@ -7,10 +7,8 @@ var size = {
 
 var data = [];
 
-// d3用の変数
 var win = d3.select(window);
 
-// アニメーション終了の判定フラグ
 var isAnimated = false;
 
 function get_data() {
@@ -31,9 +29,11 @@ function get_data() {
         data[i] = [{legend: "貯金", value: value, color: "#8484ff"},
             {legend: "残り", value: 100 - value, color: "#ff8484"}];
         if (i == 0) {
-            $("#main").append('<svg onclick="alert()" style="width:70%" id="chart' + (i + 1) + '"></svg>');
+            $("#main").append('<svg style="width:70%" onclick="open_madal(' + tmp.individual[i].user_id + ',' + location.hash + ')" id="chart' + (i + 1) + '"></svg>'
+            )
+            ;
         } else {
-            $("#other").append('<svg style="width:40%" id="chart' + (i + 1) + '"></svg>');
+            $("#other").append('<svg style="width:40%" onclick="open_madal()" id="chart' + (i + 1) + '"></svg>');
         }
         var svg = d3.select("#chart" + (i + 1)),
             pie = d3.layout.pie().sort(null).value(function (d) {
@@ -41,27 +41,22 @@ function get_data() {
             }),
             arc = d3.svg.arc().innerRadius(10);
         render(svg, pie, arc, i);
-    }//貯金価格の取得　配列にグラフに必要なデータを格納
+    }
 }
 
-// グラフの描画
-// 描画処理に徹して、サイズに関する情報はupdate()内で調整する。
 function render(svg, pie, arc, x) {
-    // グループの作成
     var g = svg.selectAll(".arc")
         .data(pie(data[x]))
         .enter()
         .append("g")
         .attr("class", "arc");
 
-    // 円弧の作成
     g.append("path")
         .attr("stroke", "white")
         .attr("fill", function (d) {
             return d.data.color;
         });
 
-    // データの表示
     var maxValue = d3.max(data[x], function (d) {
         return d.value;
     });
@@ -76,31 +71,23 @@ function render(svg, pie, arc, x) {
 }
 
 
-// グラフのサイズを更新
 function update(svg, pie, arc, x) {
 
-    // 自身のサイズを取得する
     size.width = parseInt(svg.style("width"));
 
-    // 円グラフの外径を更新
     arc.outerRadius(size.width / 2);
 
-    // 取得したサイズを元に拡大・縮小させる
     svg
         .attr("width", size.width)
         .attr("height", size.width);
 
-    // それぞれのグループの位置を調整
     var g = svg.selectAll(".arc")
         .attr("transform", "translate(" + (size.width / 2) + "," + (size.width / 2) + ")");
 
-    // パスのサイズを調整
-    // アニメーションが終了していない場合はサイズを設定しないように
     if (isAnimated) {
         g.selectAll("path").attr("d", arc);
     }
 
-    // テキストの位置を再調整
     g.selectAll("text").attr("transform", function (d) {
         return "translate(" + arc.centroid(d) + ")";
     });
@@ -109,7 +96,6 @@ function update(svg, pie, arc, x) {
 }
 
 
-// グラフのアニメーション設定
 function animate(svg, pie, arc, x) {
     var g = svg.selectAll(".arc"),
         length = data[x].length,
@@ -131,11 +117,35 @@ function animate(svg, pie, arc, x) {
         })
         .each("end", function (transition, callback) {
             i++;
-            isAnimated = i === length; //最後の要素の時だけtrue
+            isAnimated = i === length;
         });
 }
 
-
-// 初期化
 get_data();
-win.on("resize", update); // ウィンドウのリサイズイベントにハンドラを設定
+win.on("resize", update);
+
+function open_madal(user_id, g_id) {
+    var dialog = document.querySelector('#dialog');
+    var tmp;
+
+    $.ajax({
+        url: "https://private-dec7c-eniwa03.apiary-mock.com/api/v1/set/?user_id=" + user_id + "&g_id=" + 1,
+        type: "GET",
+        async: false,
+        timeout: 10000,
+    }).done(function (getdata, textStatus, jqXHR) {
+        tmp = getdata;
+        console.log(tmp);
+    }).fail(function (jqXHR, textStatus, errorThrown) {
+    });
+    $('#dialog').html("<p>目標金額：" + tmp.price + "円</p><p>目標：" + tmp.description + "</p>");
+    $('#dialog').append('<button type="button" class="mdl-button" onclick="close_modal()">Close</button>');
+    dialogPolyfill.registerDialog(dialog);
+    dialog.showModal();
+}
+
+function close_modal() {
+    var dialog = document.querySelector('#dialog');
+    dialogPolyfill.registerDialog(dialog);
+    dialog.close();
+}
