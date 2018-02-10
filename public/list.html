@@ -1,1 +1,67 @@
-hello world
+<meta http-equiv="content-type" charset="utf-8">
+<link rel="stylesheet" href="mdl/material.min.css">
+<script src="mdl/material.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="css/list.css">
+
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">グループ一覧</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation. We hide it in small screens. -->
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">メニュー</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="form.html"><i class="material-icons">group_add</i> グループ作成</a>
+      <a class="mdl-navigation__link" href=""><i class="material-icons">shopping_cart</i> お金を使う</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content"><!-- Your content goes here -->
+
+		<div class="demo-list-action mdl-list">
+		  <div class="mdl-list__item">
+		    <span class="mdl-list__item-primary-content">
+		      <i class="material-icons mdl-list__item-avatar">group</i>
+		      <span>Bryan Cranston</span>
+		    </span>
+		    <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">whatshot</i></a>
+		  </div>
+		  <div class="mdl-list__item">
+		    <span class="mdl-list__item-primary-content">
+		      <i class="material-icons mdl-list__item-avatar">group</i>
+		      <span>Aaron Paul</span>
+		    </span>
+		    <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">warning</i></a>
+		  </div>
+		  <div class="mdl-list__item">
+		    <span class="mdl-list__item-primary-content">
+		      <i class="material-icons mdl-list__item-avatar">group</i>
+		      <span>Bob Odenkirk</span>
+		    </span>
+		    <span class="mdl-list__item-secondary-content">
+		      <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">forward</i></a>
+		    </span>
+		   </div>
+		   <div class="mdl-list__item">
+		    <span class="mdl-list__item-primary-content">
+		      <i class="material-icons mdl-list__item-avatar">group</i>
+		      <span>Bob Odenkirk</span>
+		    </span>
+		    <span class="mdl-list__item-secondary-content">
+		      <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">audiotrack</i></a>
+		    </span>
+		   </div>
+		 </div>
+
+    </div>
+  </main>
+</div>
+
+
