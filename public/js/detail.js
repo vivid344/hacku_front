@@ -31,9 +31,9 @@ function get_data() {
         data[i] = [{legend: "貯金", value: value, color: "#8484ff"},
             {legend: "残り", value: 100 - value, color: "#ff8484"}];
         if (i == 0) {
-            $("#main").append('<svg onclick="alert()" style="width:70%" size="2" id="chart' + (i + 1) + '"></svg>');
+            $("#main").append('<svg onclick="alert()" style="width:70%" id="chart' + (i + 1) + '"></svg>');
         } else {
-            $("#other").append('<svg style="width:40%" size="2" id="chart' + (i + 1) + '"></svg>');
+            $("#other").append('<svg style="width:40%" id="chart' + (i + 1) + '"></svg>');
         }
         var svg = d3.select("#chart" + (i + 1)),
             pie = d3.layout.pie().sort(null).value(function (d) {
