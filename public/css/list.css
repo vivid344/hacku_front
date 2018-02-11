@@ -6,3 +6,7 @@
 	display: flex;
 	align-item: center;
 }
+
+.mdl-list__item .mini{
+	color: #ff4081;
+}
