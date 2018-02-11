@@ -27,19 +27,17 @@ function get_data() {
     for (i = 0; i < tmp.individual.length; i++) {
         var value = tmp.individual[i].current / tmp.individual[i].goal * 100;
         data[i] = [{legend: "貯金", value: value, color: "#8484ff"},
-            {legend: "残り", value: 100 - value, color: "#ff8484"}];
+            {legend: "", value: 100 - value, color: "#ff8484"}];
         if (i == 0) {
-            $("#main").append('<svg style="width:70%" onclick="open_madal(' + tmp.individual[i].user_id + ',' + location.hash + ')" id="chart' + (i + 1) + '"></svg>'
-            )
-            ;
+            $("#main").append('<svg style="width:70%" onclick="open_madal(' + tmp.individual[i].user_id + ',' + location.hash + ')" id="chart' + (i + 1) + '"></svg>');
         } else {
-            $("#other").append('<svg style="width:40%" onclick="open_madal()" id="chart' + (i + 1) + '"></svg>');
+            $("#other").append('<svg style="width:40%" onclick="open_madal(' + tmp.individual[i].user_id + ',' + location.hash + ')" id="chart' + (i + 1) + '"></svg>');
         }
         var svg = d3.select("#chart" + (i + 1)),
             pie = d3.layout.pie().sort(null).value(function (d) {
                 return d.value;
             }),
-            arc = d3.svg.arc().innerRadius(10);
+            arc = d3.svg.arc().innerRadius(20);
         render(svg, pie, arc, i);
     }
 }
@@ -138,7 +136,7 @@ function open_madal(user_id, g_id) {
         console.log(tmp);
     }).fail(function (jqXHR, textStatus, errorThrown) {
     });
-    $('#dialog').html("<p>目標金額：" + tmp.price + "円</p><p>目標：" + tmp.description + "</p>");
+    $('#dialog').html("<p>目標金額：" + tmp.price + "円</p><p>現在金額：" + 10000 + "円</p><p>目標：" + tmp.description + "</p>");
     $('#dialog').append('<button type="button" class="mdl-button" onclick="close_modal()">Close</button>');
     dialogPolyfill.registerDialog(dialog);
     dialog.showModal();
@@ -148,4 +146,8 @@ function close_modal() {
     var dialog = document.querySelector('#dialog');
     dialogPolyfill.registerDialog(dialog);
     dialog.close();
+}
+
+function move_setting() {
+    location.href = "form.html";
 }
