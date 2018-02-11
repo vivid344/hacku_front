@@ -49,10 +49,16 @@
 
             <div align="center" style="width:100%; padding-top: 10%" id="main">
             </div>
-            <div align="center" style="width:100%;" id="other">
+            <div align="center" style="width:100%; padding-bottom: 10%" id="other">
             </div>
-
-            <dialog id="dialog" class="mdl-dialog">
+            <div style="text-align: center">
+                <button class="mdl-button mdl-js-button mdl-button--raised" onclick="open_charge_madal()">
+                    貯金する！
+                </button>
+            </div>
+            <dialog id="detail_dialog" class="mdl-dialog">
+            </dialog>
+            <dialog id="charge_dialog" class="mdl-dialog">
             </dialog>
 
             <script type="text/javascript" src="js/d3.js"></script>
