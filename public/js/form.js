@@ -3,11 +3,14 @@ function make_group() {
     var dead = $("#datepicker").val();
     var today = new Date();
     var dead_day = new Date(dead);
+
     if (!group_name) {
         alert("グループ名を入力して下さい");
     } else if (today > dead_day || !dead) {
         alert("未来の日付を入力して下さい");
     } else {
+        dead = dead.replace("/", "-");
+        dead = dead.replace("/", "-");
         var tmp;//招待未完成
         $.ajax({
             url: "http://35.201.145.29:62070/api/v1/make_group?name=" + group_name + "&date=" + dead + "&users=&user_id=" + sessionStorage.user_id,
