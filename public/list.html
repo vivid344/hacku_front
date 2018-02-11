@@ -1,85 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="content-type" charset="utf-8">
-	<title>グループ一覧</title>
-	<meta name="viewport"
-		  content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-	<link rel="stylesheet" href="mdl/material.min.css">
-	<script src="mdl/material.min.js"></script>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link rel="stylesheet" href="css/list.css">
-	<script src="js/list.js"></script>
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <meta http-equiv="content-type" charset="utf-8">
+    <title>グループ一覧</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="mdl/material.min.css">
+    <script src="mdl/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="css/list.css">
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/list.js"></script>
+    <script src="js/list2.js"></script>
+    <script src="js/sweetalert.js"></script>
 </head>
-	<body>
-	<!-- Always shows a header, even in smaller screens. -->
-	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-	  <header class="mdl-layout__header">
-	    <div class="mdl-layout__header-row">
-	      <!-- Title -->
-	      <span class="mdl-layout-title">グループ一覧</span>
-	      <!-- Add spacer, to align navigation to the right -->
-	      <div class="mdl-layout-spacer"></div>
-	      <!-- Navigation. We hide it in small screens. -->
-	    </div>
-	  </header>
+<body onload="init()">
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">グループ一覧</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+        </div>
+    </header>
 
-	  <div class="mdl-layout__drawer">
-	    <span class="mdl-layout-title">メニュー</span>
-	    <nav class="mdl-navigation">
-	      <a class="mdl-navigation__link" href="form.html"><i class="material-icons">group_add</i> グループ作成</a>
-	      <a class="mdl-navigation__link" href=""><i class="material-icons">shopping_cart</i> 買い物をする</a>
-	    </nav>
-	  </div>
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">メニュー</span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="list.html"><i class="material-icons">group_add</i> グループ一覧</a>
+            <a class="mdl-navigation__link" href="form.html"><i class="material-icons">group_add</i> グループ作成</a>
+            <a class="mdl-navigation__link" href=""><i class="material-icons">shopping_cart</i> お金を使う</a>
+        </nav>
+    </div>
 
-	  <main class="mdl-layout__content">
-	    <div class="page-content"><!-- Your content goes here -->
-	    	<div class="demo-list-action mdl-list">
-
-	    		<a onclick="fire_button()">
-			    	<div class="mdl-list__item">
-			    		<span class="mdl-list__item-primary-content">
-			      			<i class="material-icons mdl-list__item-avatar">group</i>
-			      			<span>恵庭03</span>
-			    		</span>
-			    		<i class="material-icons mini">event_busy</i>
-					</div>
-				</a>
-
-				<a onclick="approval_button()">
-					<div class="mdl-list__item">
-				    	<span class="mdl-list__item-primary-content">
-				      		<i class="material-icons mdl-list__item-avatar">group</i>
-				      		<span>FUN大学院</span>
-				    	</span>
-				    	<i class="material-icons mini">warning</i>
-					</div>
-				</a>
-
-				<a onclick="detail_button()">
-			    	<div class="mdl-list__item">
-			    		<span class="mdl-list__item-primary-content">
-			      			<i class="material-icons mdl-list__item-avatar">group</i>
-			      			<span>麻雀部</span>
-			    		</span>
-			    		<i class="material-icons mini">forward</i>
-					</div>
-				</a>
-
-				<a onclick="success_button()">
-			    	<div class="mdl-list__item">
-			    		<span class="mdl-list__item-primary-content">
-			      			<i class="material-icons mdl-list__item-avatar">group</i>
-			      			<span>ルスツ</span>
-			    		</span>
-			    		<i class="material-icons mini">event_available</i>
-					</div>
-				</a>
-
-			</div>
-		</div>
-	  </main>
-	</div>
-	</body>
+    <main class="mdl-layout__content">
+        <div class="page-content"><!-- Your content goes here -->
+            <div class="demo-list-action mdl-list" id="list">
+            </div>
+        </div>
+    </main>
+</div>
+</body>
 </html>
