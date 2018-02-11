@@ -59,23 +59,32 @@
         </nav>
     </div>
 
-    <main class="mdl-layout__content" style="z-index: -1">
+    <main class="mdl-layout__content" style="z-index: 0">
         <div class="page-content">
             <div align="center" style="padding-top: 5%;font-size: 30px" id="dead"></div>
             <div align="center" style="width:100%; padding-top: 5%" id="main">
             </div>
-            <div align="center" style="width:100%; padding-bottom: 10%" id="other">
+            <div align="center" style="width:100%; padding-bottom: 30%" id="other">
             </div>
             <dialog id="detail_dialog" class="mdl-dialog">
             </dialog>
             <dialog id="charge_dialog" class="mdl-dialog">
+                <form action="#" style="padding-bottom: 5%">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="price">
+                        <label class="mdl-textfield__label" for="sample4">貯金額...</label>
+                        <span class="mdl-textfield__error">数字を入力して下さい！</span>
+                    </div>
+                </form>
+                <button type="button" class="mdl-button mdl-js-button mdl-button--raised" onclick="close_modal2()">閉じる</button>
+                <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="send_charge()">貯金</button>
             </dialog>
 
             <script type="text/javascript" src="js/d3.js"></script>
             <script type="text/javascript" src="js/detail.js"></script>
         </div>
     </main>
-    <div class="fix_menu_smartphone">
+    <div class="fix_menu_smartphone" onclick="open_charge_modal()">
         <div style="padding-top: 4%">貯金する!</div>
     </div>
 </div>

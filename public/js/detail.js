@@ -32,9 +32,9 @@ function get_data() {
         data[i] = [{legend: "貯金", value: value, color: "#8484ff"},
             {legend: "", value: 100 - value, color: "#ff8484"}];
         if (i == 0) {
-            $("#main").append('<svg style="width:70%" onclick="open_madal(' + tmp.individual[i].user_id + ',' + location.hash + ')" id="chart' + (i + 1) + '"></svg>');
+            $("#main").append('<svg style="width:70%;padding-bottom: 5%" onclick="open_modal(' + tmp.individual[i].user_id + ',' + location.hash + ')" id="chart' + (i + 1) + '"></svg>');
         } else {
-            $("#other").append('<svg style="width:40%" onclick="open_madal(' + tmp.individual[i].user_id + ',' + location.hash + ')" id="chart' + (i + 1) + '"></svg>');
+            $("#other").append('<svg style="width:40%;padding-bottom: 5%" onclick="open_modal(' + tmp.individual[i].user_id + ',' + location.hash + ')" id="chart' + (i + 1) + '"></svg>');
         }
         var svg = d3.select("#chart" + (i + 1)),
             pie = d3.layout.pie().sort(null).value(function (d) {
@@ -125,28 +125,27 @@ function animate(svg, pie, arc, x) {
 get_data();
 win.on("resize", update);
 
-function open_madal(user_id, g_id) {
+function open_modal(user_id, g_id) {
     var dialog = document.querySelector('#detail_dialog');
     var tmp;
 
     $.ajax({
-        url: "https://private-dec7c-eniwa03.apiary-mock.com/api/v1/set/?user_id=" + user_id + "&g_id=" + 1,
+        url: "https://private-dec7c-eniwa03.apiary-mock.com/api/v1/set?user_id=" + user_id + "&g_id=" + 1,
         type: "GET",
         async: false,
         timeout: 10000,
     }).done(function (getdata, textStatus, jqXHR) {
         tmp = getdata;
-        console.log(tmp);
     }).fail(function (jqXHR, textStatus, errorThrown) {
     });
 
     $('#detail_dialog').html("<p>目標金額：" + tmp.goal_price + "円</p><p>現在金額：" + tmp.current_price + "円</p><p>目標：" + tmp.description + "</p>");
-    $('#detail_dialog').append('<button type="button" class="mdl-button" onclick="close_modal()">Close</button>');
+    $('#detail_dialog').append('<button type="button" class="mdl-button mdl-js-button mdl-button--raised" onclick="close_modal()">閉じる</button>');
     dialogPolyfill.registerDialog(dialog);
     dialog.showModal();
 }
 
-function open_charge_madal() {
+function open_charge_modal() {
     var dialog = document.querySelector('#charge_dialog');
     dialogPolyfill.registerDialog(dialog);
     dialog.showModal();
@@ -158,8 +157,31 @@ function close_modal() {
     dialog.close();
 }
 
+function close_modal2() {
+    var dialog = document.querySelector('#charge_dialog');
+    dialogPolyfill.registerDialog(dialog);
+    dialog.close();
+}
+
 function move_setting() {
     location.href = "form.html";
+}
+
+function send_charge() {
+    var price = $("#price").val();
+    $.ajax({
+        url: "https://private-dec7c-eniwa03.apiary-mock.com/api/v1/charge",
+        type: "POST",
+        async: false,
+        data: {
+            "user_id": 1,
+            "price": price
+        },
+        timeout: 10000,
+    }).done(function (getdata, textStatus, jqXHR) {
+        location.href = location.href;
+    }).fail(function (jqXHR, textStatus, errorThrown) {
+    });
 }
 
 $(function () {
