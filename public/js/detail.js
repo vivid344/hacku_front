@@ -40,7 +40,8 @@ function get_data() {
             pie = d3.layout.pie().sort(null).value(function (d) {
                 return d.value;
             }),
-            arc = d3.svg.arc().innerRadius(20);
+            arc = d3.svg.arc().innerRadius(30);
+
         render(svg, pie, arc, i);
     }
 }
