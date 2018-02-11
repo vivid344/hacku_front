@@ -24,7 +24,8 @@ function get_data() {
         tmp = getdata;
     }).fail(function (jqXHR, textStatus, errorThrown) {
     });
-
+    $("#g_name").html(tmp.g_name);
+    $("#g_name2").html(tmp.g_name);
     $("#dead").html('<i class="material-icons" style="padding-right: 3%;color: red">warning</i>' + tmp.dead);
 
     var i;

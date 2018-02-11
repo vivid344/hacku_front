@@ -5,26 +5,30 @@
     <title>ユーザ登録</title>
     <meta name="viewport"
           content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <link rel="stylesheet" href="css/sign_up.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="mdl/material.min.css">
+    <script src="mdl/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/sign_up.js"></script>
   </head>
   <body>
     <div class="form-wrapper">
-      <h1>サインアップ</h1>
-      <form>
-        <div class="form-item">
-          <label for="email"></label>
-          <input required="required" placeholder="アカウント名"></input>
-        </div>
-        <div class="form-item">
-          <label for="password"></label>
-          <input type="password" name="password" required="required" placeholder="パスワード"></input>
-        </div>
-        <div class="button-panel">
-          <input type="submit" class="button" title="Sign In" value="登録" onclick="javascript:location.href = 'index.html';"></input>
-        </div>
-      </form>
-      <div class="form-footer">
-      </div>
+      <h3 style="text-align: center;padding-top: 5%">サインアップ</h3>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" id="name">
+        <label class="mdl-textfield__label" name="email" required="required">アカウント名</label>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="padding-bottom: 10%">
+        <input class="mdl-textfield__input" type="password" id="pass">
+        <label class="mdl-textfield__label" name="password" required="required">パスワード</label>
+    </div>
+    <div style="text-align: center;">
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" onclick="add()"
+                style="width: 70%;text-align: center">
+            登録
+        </button>
+    </div>
     </div>
   </body>
 </html>
