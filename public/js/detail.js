@@ -125,7 +125,7 @@ get_data();
 win.on("resize", update);
 
 function open_madal(user_id, g_id) {
-    var dialog = document.querySelector('#dialog');
+    var dialog = document.querySelector('#detail_dialog');
     var tmp;
 
     $.ajax({
@@ -138,14 +138,20 @@ function open_madal(user_id, g_id) {
         console.log(tmp);
     }).fail(function (jqXHR, textStatus, errorThrown) {
     });
-    $('#dialog').html("<p>目標金額：" + tmp.price + "円</p><p>目標：" + tmp.description + "</p>");
-    $('#dialog').append('<button type="button" class="mdl-button" onclick="close_modal()">Close</button>');
+    $('#detail_dialog').html("<p>目標金額：" + tmp.price + "円</p><p>目標：" + tmp.description + "</p>");
+    $('#detail_dialog').append('<button type="button" class="mdl-button" onclick="close_modal()">Close</button>');
+    dialogPolyfill.registerDialog(dialog);
+    dialog.showModal();
+}
+
+function open_charge_madal(){
+    var dialog = document.querySelector('#charge_dialog');
     dialogPolyfill.registerDialog(dialog);
     dialog.showModal();
 }
 
 function close_modal() {
-    var dialog = document.querySelector('#dialog');
+    var dialog = document.querySelector('#detail_dialog');
     dialogPolyfill.registerDialog(dialog);
     dialog.close();
 }
