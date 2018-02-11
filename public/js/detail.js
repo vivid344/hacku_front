@@ -30,6 +30,12 @@ function get_data() {
     var i;
     for (i = 0; i < tmp.individual.length; i++) {
         var value = tmp.individual[i].current / tmp.individual[i].goal * 100;
+        if (value > 100) {
+            value = 100
+        }
+        if (isNaN(value)) {
+            value = 0;
+        }
         data[i] = [{legend: "貯金", value: value, color: "#8484ff"},
             {legend: "", value: 100 - value, color: "#ff8484"}];
         if (i == 0) {
