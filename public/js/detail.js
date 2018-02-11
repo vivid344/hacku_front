@@ -23,6 +23,9 @@ function get_data() {
         tmp = getdata;
     }).fail(function (jqXHR, textStatus, errorThrown) {
     });
+
+    $("#dead").html('<i class="material-icons" style="padding-right: 3%;color: red">warning</i>' + tmp.dead);
+
     var i;
     for (i = 0; i < tmp.individual.length; i++) {
         var value = tmp.individual[i].current / tmp.individual[i].goal * 100;
@@ -137,13 +140,13 @@ function open_madal(user_id, g_id) {
     }).fail(function (jqXHR, textStatus, errorThrown) {
     });
 
-    $('#detail_dialog').html("<p>目標金額：" + tmp.price + "円</p><p>目標：" + tmp.description + "</p>");
+    $('#detail_dialog').html("<p>目標金額：" + tmp.goal_price + "円</p><p>現在金額：" + tmp.current_price + "円</p><p>目標：" + tmp.description + "</p>");
     $('#detail_dialog').append('<button type="button" class="mdl-button" onclick="close_modal()">Close</button>');
     dialogPolyfill.registerDialog(dialog);
     dialog.showModal();
 }
 
-function open_charge_madal(){
+function open_charge_madal() {
     var dialog = document.querySelector('#charge_dialog');
     dialogPolyfill.registerDialog(dialog);
     dialog.showModal();
