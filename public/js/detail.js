@@ -149,3 +149,7 @@ function close_modal() {
     dialogPolyfill.registerDialog(dialog);
     dialog.close();
 }
+
+function move_setting() {
+    location.href = "form.html";
+}
