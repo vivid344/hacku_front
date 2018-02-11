@@ -1,3 +1,5 @@
+var users = "[";
+
 function make_group() {
     var group_name = $("#group").val();
     var dead = $("#datepicker").val();
@@ -11,9 +13,13 @@ function make_group() {
     } else {
         dead = dead.replace("/", "-");
         dead = dead.replace("/", "-");
+        if (users != "[") {
+            users = users.slice(0, -1);
+        }
+        users = users + "]";
         var tmp;//招待未完成
         $.ajax({
-            url: "http://35.201.145.29:62070/api/v1/make_group?name=" + group_name + "&date=" + dead + "&users=[]&user_id=" + sessionStorage.user_id,
+            url: "http://35.201.145.29:62070/api/v1/make_group?name=" + group_name + "&date=" + dead + "&users=" + users + "&user_id=" + sessionStorage.user_id,
             type: "POST",
             async: false,
             timeout: 10000,
@@ -25,18 +31,6 @@ function make_group() {
 }
 
 $(function () {
-    var data = [
-    'accepts',
-    'action_name',
-    'add',
-    'add_column',
-    'add_index',
-    'add_timestamps',
-    'after_create',
-    'after_destroy',
-    'after_filter',
-    'all'];
-
     $("#datepicker").datepicker();
     if ((navigator.userAgent.indexOf('iPhone') > 0
         && navigator.userAgent.indexOf('iPad') == -1)
@@ -48,10 +42,26 @@ $(function () {
         $('.fix_menu_smartphone').css('display', 'none');
     }
 
-    $('#invite').autocomplete({
-    source: data,
-    autoFocus: true,
-    delay: 500,
-    minLength: 1
-  });
+    var data;
+    $('.autocomplete').autocomplete({
+        source: function (req, resp) {
+            if (req.term != '') {
+                $.ajax({
+                    url: 'http://35.201.145.29:62070/api/v1/users?keyword=' + req.term,
+                    type: 'GET',
+                    dataType: 'json',
+                    async: true,
+                    success: function (user) {
+                        data = user;
+                        resp(user);
+                    }
+                });
+            }
+        },
+        select: function (e, user) {
+            users = users + user.item.id + ",";
+            $("#list").append("<div style='padding-top: 3%'>"+user.item.label+"</div>")
+        },
+        minLength: 1
+    });
 });
