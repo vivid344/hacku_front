@@ -1,7 +1,7 @@
 function init() {
     var tmp;
     $.ajax({
-        url: "https://private-dec7c-eniwa03.apiary-mock.com/api/v1/lists/"+sessionStorage.user_id,
+        url: "http://35.201.145.29:62070/api/v1/lists/"+sessionStorage.user_id,
         type: "GET",
         async: false,
         timeout: 10000,

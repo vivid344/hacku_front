@@ -2,74 +2,79 @@
 
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 
-  <title>グループ情報</title>
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
-  <meta http-equiv="content-type" charset="utf-8">
-  <meta name="viewport"
-      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-  <link rel="stylesheet" href="mdl/material.min.css">
-  <script src="mdl/material.min.js"></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="css/form.css">
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <title>グループ情報</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+    <meta http-equiv="content-type" charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="mdl/material.min.css">
+    <script src="mdl/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
 
-  <!--[if lt IE 9]>
+    <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-  <![endif]-->
+    <![endif]-->
 </head>
 
 <body>
-  <!-- Always shows a header, even in smaller screens. -->
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
-      <div class="mdl-layout__header-row">
-        <!-- Title -->
-        <span class="mdl-layout-title">グループ情報</span>
-        <!-- Add spacer, to align navigation to the right -->
-        <div class="mdl-layout-spacer"></div>
-        <!-- Navigation. We hide it in small screens. -->
-      </div>
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">グループ情報</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+        </div>
     </header>
 
     <div class="mdl-layout__drawer">
-      <span class="mdl-layout-title">メニュー</span>
-      <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="form.html"><i class="material-icons">group_add</i> グループ作成</a>
-        <a class="mdl-navigation__link" href=""><i class="material-icons">shopping_cart</i> 買い物をする</a>
-      </nav>
+        <span class="mdl-layout-title">メニュー</span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="list.html"><i class="material-icons">group_add</i> グループ一覧</a>
+            <a class="mdl-navigation__link" href="form.html"><i class="material-icons">group_add</i> グループ作成</a>
+            <a class="mdl-navigation__link" href="shopping.html"><i class="material-icons">shopping_cart</i> お金を使う</a>
+        </nav>
     </div>
 
     <main class="mdl-layout__content">
-      <div class="page-content"><!-- Your content goes here -->
-          <ul class="demo-list-item mdl-list">
-            <li class="mdl-list__item">
+        <div class="page-content"><!-- Your content goes here -->
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="sample3">
+                <label class="mdl-textfield__label" for="sample3">グループ名</label>
+            </div>
+            <ul class="demo-list-item mdl-list">
+                <li class="mdl-list__item">
               <span class="mdl-list__item-primary-content">
                 グループ名
               </span>
-            </li>
-            <form action="#">
-              <div class="mdl-textfield mdl-js-textfield">
-                <input class="mdl-textfield__input" type="text" id="sample1">
-                <label class="mdl-textfield__label" for="sample1">Text...</label>
-              </div>
-            </form>
-            <li class="mdl-list__item">
+                </li>
+                <form action="#">
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="text" id="sample1">
+                        <label class="mdl-textfield__label" for="sample1">Text...</label>
+                    </div>
+                </form>
+                <li class="mdl-list__item">
               <span class="mdl-list__item-primary-content">
                 期限
               </span>
-            </li>
-            <li class="mdl-list__item">
+                </li>
+                <li class="mdl-list__item">
               <span class="mdl-list__item-primary-content">
                 友達追加
               </span>
-            </li>
-          </ul>
-      </div>
+                </li>
+            </ul>
+        </div>
     </main>
-  </div>
+</div>
 </body>
 
 </html>
