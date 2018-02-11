@@ -161,3 +161,15 @@ function close_modal() {
 function move_setting() {
     location.href = "form.html";
 }
+
+$(function () {
+    if ((navigator.userAgent.indexOf('iPhone') > 0
+        && navigator.userAgent.indexOf('iPad') == -1)
+        || navigator.userAgent.indexOf('iPod') > 0
+        || navigator.userAgent.indexOf('Android') > 0) {
+        var bH = $('.fix_menu_smartphone').height();
+        $('body').css('margin-bottom', bH + 'px');
+    } else {
+        $('.fix_menu_smartphone').css('display', 'none');
+    }
+});
