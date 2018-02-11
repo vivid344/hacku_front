@@ -14,7 +14,7 @@ function init() {
         if (tmp[i].status == "doing") {
             $("#list").append('<a onclick="detail_button()"><div style="border-bottom: solid 1px #EBEBEB" class="mdl-list__item"><span class="mdl-list__item-primary-content"><i class="material-icons mdl-list__item-avatar">group</i><span>' + tmp[i].g_name + '</span></span><i class="material-icons mini">forward</i></div></a>');
         } else if (tmp[i].status == "invite") {
-            $("#list").append('<a onclick="approval_button()"><div style="border-bottom: solid 1px #EBEBEB" class="mdl-list__item"><span class="mdl-list__item-primary-content"><i class="material-icons mdl-list__item-avatar">group</i><span>' + tmp[i].g_name + '</span></span><i class="material-icons mini">warning</i></div></a>');
+            $("#list").append('<a onclick="approval_button('+tmp[i].id+')"><div style="border-bottom: solid 1px #EBEBEB" class="mdl-list__item"><span class="mdl-list__item-primary-content"><i class="material-icons mdl-list__item-avatar">group</i><span>' + tmp[i].g_name + '</span></span><i class="material-icons mini">warning</i></div></a>');
         } else if (tmp[i].status == "success") {
             $("#list").append('<a onclick="success_button()"><div style="border-bottom: solid 1px #EBEBEB" class="mdl-list__item"><span class="mdl-list__item-primary-content"><i class="material-icons mdl-list__item-avatar">group</i><span>' + tmp[i].g_name + '</span></span><i class="material-icons mini">event_available</i></div></a>');
         } else {
