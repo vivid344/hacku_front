@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>グループ作成</title>
+    <title>追加招待</title>
     <meta name="description" content="The HTML5 Herald">
     <meta name="author" content="SitePoint">
     <meta http-equiv="content-type" charset="utf-8">
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="mdl/material.min.css">
     <script src="mdl/material.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link type="text/css" rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.min.css" />
+    <link type="text/css" rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.min.css"/>
     <script type="text/javascript"
             src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script type="text/javascript"
@@ -65,22 +65,13 @@
     <main class="mdl-layout__content" style="z-index: 0">
         <div class="page-content" style="text-align: center;padding-top: 5%"><!-- Your content goes here -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" id="group">
-                <label class="mdl-textfield__label">グループ名</label>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" id="datepicker">
-                <label class=" mdl-textfield__label">期限</label>
-            </div>
-
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input class="mdl-textfield__input autocomplete" type="text" id="auto" placeholder="招待">
             </div>
 
             <div><h6>招待リスト</h6></div>
             <div id="list"></div>
 
-            <script type="text/javascript" src="js/form.js"></script>
+            <script type="text/javascript" src="js/add.js"></script>
         </div>
     </main>
     <div class="fix_menu_smartphone" onclick="make_group()">

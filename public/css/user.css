@@ -1,0 +1,61 @@
+.ui-autocomplete {
+    position: absolute;
+    width: 100px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.ui-menu .ui-menu-item-wrapper {
+    position: relative;
+    padding: 0.6rem 1rem 0 0.7rem;
+    height: 45px;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.ui-widget-content {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+.ui-state-active {
+    border-bottom: 1px solid #C5C5C5 !important;
+    border-top: 1px solid #C5C5C5 !important;
+    border-left: 1px solid #C5C5C5 !important;
+    border-right: 1px solid #C5C5C5 !important;
+    background: #EEEEEE !important;
+    color: #000000 !important;
+    height: 47px !important;
+}
+
+.dist {
+    color: #888888;
+    font-size: 0.7em;
+    float: right;
+}
+
+.prefecture, .not_found {
+    color: #888888;
+    font-size: 0.7em;
+}
+
+.prefecture {
+    position: absolute;
+    text-align: center;
+    top: 10px;
+    left: 9rem;
+    width: 5rem;
+}
+
+.not-found {
+    position: absolute;
+    top: 10px;
+    font-size: 1em;
+    text-align: center;
+    left: 2.8rem;
+}
+
+.item-label {
+    position: absolute;
+    top: 10px;
+    left: 2.8rem;
+}

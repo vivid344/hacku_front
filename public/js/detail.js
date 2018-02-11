@@ -38,7 +38,7 @@ function get_data() {
         }
         data[i] = [{legend: "貯金", value: value, color: "#8484ff"},
             {legend: "", value: 100 - value, color: "#ff8484"}];
-        if (i == 0) {
+        if (sessionStorage.user_id == tmp.individual[i].user_id) {
             $("#main").append('<svg style="width:70%;padding-bottom: 5%" onclick="open_modal(' + tmp.individual[i].user_id + ',' + g_id + ')" id="chart' + (i + 1) + '"></svg>');
         } else {
             $("#other").append('<svg style="width:40%;padding-bottom: 5%" onclick="open_modal(' + tmp.individual[i].user_id + ',' + g_id + ')" id="chart' + (i + 1) + '"></svg>');
@@ -172,7 +172,7 @@ function close_modal2() {
 }
 
 function move_setting() {
-    location.href = "form.html";
+    location.href = "add.html" + location.hash;
 }
 
 function send_charge() {
