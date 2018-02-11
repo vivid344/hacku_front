@@ -14,7 +14,7 @@ function set_desc() {
             async: false,
             timeout: 10000,
         }).done(function (getdata, textStatus, jqXHR) {
-            location.href = "detail.html#" + location.hash.replace("#", "");
+            location.href = "detail.html" + location.hash;
         }).fail(function (jqXHR, textStatus, errorThrown) {
         });
     }

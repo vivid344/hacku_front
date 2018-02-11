@@ -7,15 +7,16 @@ var size = {
 
 var data = [];
 
+
 var win = d3.select(window);
 
 var isAnimated = false;
 
 function get_data() {
-    var g_id = 1;
+    var g_id = location.hash.replace("#", "");
     var tmp;
     $.ajax({
-        url: "https://private-dec7c-eniwa03.apiary-mock.com/api/v1/details/" + g_id,
+        url: "http://35.201.145.29:62070/api/v1/details/" + g_id,
         type: "GET",
         async: false,
         timeout: 10000,
@@ -32,9 +33,9 @@ function get_data() {
         data[i] = [{legend: "貯金", value: value, color: "#8484ff"},
             {legend: "", value: 100 - value, color: "#ff8484"}];
         if (i == 0) {
-            $("#main").append('<svg style="width:70%;padding-bottom: 5%" onclick="open_modal(' + tmp.individual[i].user_id + ',' + location.hash + ')" id="chart' + (i + 1) + '"></svg>');
+            $("#main").append('<svg style="width:70%;padding-bottom: 5%" onclick="open_modal(' + tmp.individual[i].user_id + ',' + g_id + ')" id="chart' + (i + 1) + '"></svg>');
         } else {
-            $("#other").append('<svg style="width:40%;padding-bottom: 5%" onclick="open_modal(' + tmp.individual[i].user_id + ',' + location.hash + ')" id="chart' + (i + 1) + '"></svg>');
+            $("#other").append('<svg style="width:40%;padding-bottom: 5%" onclick="open_modal(' + tmp.individual[i].user_id + ',' + g_id + ')" id="chart' + (i + 1) + '"></svg>');
         }
         var svg = d3.select("#chart" + (i + 1)),
             pie = d3.layout.pie().sort(null).value(function (d) {
@@ -131,7 +132,7 @@ function open_modal(user_id, g_id) {
     var tmp;
 
     $.ajax({
-        url: "https://private-dec7c-eniwa03.apiary-mock.com/api/v1/set?user_id=" + user_id + "&g_id=" + 1,
+        url: "http://35.201.145.29:62070/api/v1/set?user_id=" + user_id + "&g_id=" + g_id,
         type: "GET",
         async: false,
         timeout: 10000,
@@ -171,17 +172,14 @@ function move_setting() {
 function send_charge() {
     var price = $("#price").val();
     $.ajax({
-        url: "https://private-dec7c-eniwa03.apiary-mock.com/api/v1/charge",
+        url: "http://35.201.145.29:62070/api/v1/charge?user_id=" + sessionStorage.user_id + "&group_id=" + location.hash.replace("#", "") + "&price=" + price,
         type: "POST",
         async: false,
-        data: {
-            "user_id": 1,
-            "price": price
-        },
         timeout: 10000,
     }).done(function (getdata, textStatus, jqXHR) {
-        location.href = location.href;
+        location.reload();
     }).fail(function (jqXHR, textStatus, errorThrown) {
+        console.log("error");
     });
 }
 

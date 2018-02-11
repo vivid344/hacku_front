@@ -23,7 +23,7 @@ function approval_button(group_id) {
     });
 }
 
-function fire_button(){
+function fire_button(group_id){
     swal({
         title: "目標達成できませんでした。",
         text: "グループの皆さんが目標金額までお金を貯めることができませんでした。残念ですが、あなたが貯金したお金は全て「Yahoo！ネット募金」に募金されます。",
@@ -45,7 +45,7 @@ function fire_button(){
             break;
 
         case "catch":
-            window.location.href = 'detail.html';
+            window.location.href = 'detail.html#'+group_id;
             break;
 
         default:
@@ -53,7 +53,7 @@ function fire_button(){
     });
 }
 
-function success_button(){
+function success_button(group_id){
     swal({
         title: "おめでとうございます。",
         text: "目標金額に達しました。貯めたお金でショッピングを楽しんでください",
@@ -75,13 +75,13 @@ function success_button(){
             break;
 
         case "catch":
-            window.location.href = 'detail.html';
+            window.location.href = 'detail.html#'+group_id;
             break;
 
         default:
         }
     });
 }
-function detail_button(){
-    window.location.href = 'detail.html';
+function detail_button(group_id){
+    window.location.href = 'detail.html#'+group_id;
 }
