@@ -140,7 +140,7 @@ function open_modal(user_id, g_id) {
     }).fail(function (jqXHR, textStatus, errorThrown) {
     });
 
-    $('#detail_dialog').html("<p>目標金額：" + tmp.goal_price + "円</p><p>現在金額：" + tmp.current_price + "円</p><p>目標：" + tmp.description + "</p>");
+    $('#detail_dialog').html("<p>ユーザ名：vivid344</p><p>目標金額：" + tmp.goal_price + "円</p><p>現在金額：" + tmp.current_price + "円</p><p>目標：" + tmp.description + "</p>");
     $('#detail_dialog').append('<button type="button" class="mdl-button mdl-js-button mdl-button--raised" onclick="close_modal()">閉じる</button>');
     dialogPolyfill.registerDialog(dialog);
     dialog.showModal();
