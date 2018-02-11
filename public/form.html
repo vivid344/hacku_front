@@ -14,7 +14,8 @@
     <script src="mdl/material.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="css/form.css">
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/form.js"></script>
 
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
@@ -46,32 +47,21 @@
     <main class="mdl-layout__content">
         <div class="page-content"><!-- Your content goes here -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" id="sample3">
-                <label class="mdl-textfield__label" for="sample3">グループ名</label>
+                <input class="mdl-textfield__input" type="text" id="group">
+                <label class="mdl-textfield__label">グループ名</label>
             </div>
-            <ul class="demo-list-item mdl-list">
-                <li class="mdl-list__item">
-              <span class="mdl-list__item-primary-content">
-                グループ名
-              </span>
-                </li>
-                <form action="#">
-                    <div class="mdl-textfield mdl-js-textfield">
-                        <input class="mdl-textfield__input" type="text" id="sample1">
-                        <label class="mdl-textfield__label" for="sample1">Text...</label>
-                    </div>
-                </form>
-                <li class="mdl-list__item">
-              <span class="mdl-list__item-primary-content">
-                期限
-              </span>
-                </li>
-                <li class="mdl-list__item">
-              <span class="mdl-list__item-primary-content">
-                友達追加
-              </span>
-                </li>
-            </ul>
+
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-select">
+                <input class="mdl-textfield__input" type="text" id="select-section" />
+                <label class="mdl-textfield__label" for="sample3">セレクトしよう</label>
+                <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="select-section">
+                    <li class="mdl-menu__item">2018</li>
+                    <li class="mdl-menu__item">2019</li>
+                    <li class="mdl-menu__item">2020</li>
+                    <li class="mdl-menu__item">2021</li>
+                    <li class="mdl-menu__item">2022</li>
+                </ul>
+            </div>
         </div>
     </main>
 </div>

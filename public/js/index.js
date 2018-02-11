@@ -13,7 +13,7 @@ function login() {
     }).done(function (getdata, textStatus, jqXHR) {
         var tmp = getdata;
         if (tmp.status == "error") {
-            location.href = location.hostname + location.pathname + "?-1";
+            location.href = location.href;
         } else {
             sessionStorage.user_id = tmp.user_id;
             location.href = "list.html";
