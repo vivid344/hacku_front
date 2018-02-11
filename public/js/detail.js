@@ -28,6 +28,10 @@ function get_data() {
     $("#g_name2").html(tmp.g_name);
     $("#dead").html('<i class="material-icons" style="padding-right: 3%;color: red">warning</i>' + tmp.dead);
 
+    if (tmp.state != "0") {
+        $("#footer").css('display', 'none');
+    }
+
     var i;
     for (i = 0; i < tmp.individual.length; i++) {
         var value = tmp.individual[i].current / tmp.individual[i].goal * 100;
@@ -131,9 +135,6 @@ function animate(svg, pie, arc, x) {
         });
 }
 
-get_data();
-win.on("resize", update);
-
 function open_modal(user_id, g_id) {
     var dialog = document.querySelector('#detail_dialog');
     var tmp;
@@ -200,4 +201,6 @@ $(function () {
     } else {
         $('.fix_menu_smartphone').css('display', 'none');
     }
+    get_data();
+    win.on("resize", update);
 });
