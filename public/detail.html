@@ -4,34 +4,61 @@
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <title>hoge</title>
+    <title>グループ詳細</title>
+    <link rel="stylesheet" href="mdl/material.min.css">
+    <script src="mdl/material.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/dialog-polyfill.css" />
+    <link rel="stylesheet" href="css/list.css">
+    <link rel="stylesheet" type="text/css" href="css/dialog-polyfill.css"/>
     <script src="js/dialog-polyfill.js"></script>
-    <style>
-        body {
-            max-width: 90%;
-            margin-right: auto;
-            margin-left: auto;
-            padding: 1em;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        }
-    </style>
 </head>
 <body>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">グループ詳細</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                  mdl-textfield--floating-label mdl-textfield--align-right">
+                <label class="mdl-button mdl-js-button mdl-button--icon" onclick="move_setting()">
+                    <i class="material-icons">settings</i>
+                </label>
+                <div class="mdl-textfield__expandable-holder">
+                    <input class="mdl-textfield__input" type="text" name="sample"
+                           id="fixed-header-drawer-exp">
+                </div>
+            </div>
+        </div>
+    </header>
 
-<div align="center" style="width:100%;" id="main">
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">メニュー</span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="list.html"><i class="material-icons">group_add</i> グループ一覧</a>
+            <a class="mdl-navigation__link" href="form.html"><i class="material-icons">group_add</i> グループ作成</a>
+            <a class="mdl-navigation__link" href=""><i class="material-icons">shopping_cart</i> お金を使う</a>
+        </nav>
+    </div>
+
+    <main class="mdl-layout__content">
+        <div class="page-content">
+
+            <div align="center" style="width:100%; padding-top: 10%" id="main">
+            </div>
+            <div align="center" style="width:100%;" id="other">
+            </div>
+
+            <dialog id="dialog" class="mdl-dialog">
+            </dialog>
+
+            <script type="text/javascript" src="js/d3.js"></script>
+            <script type="text/javascript" src="js/detail.js"></script>
+        </div>
+    </main>
 </div>
-<div align="center" style="width:100%;" id="other">
-</div>
-
-<dialog id="dialog" class="mdl-dialog">
-</dialog>
-
-<script type="text/javascript" src="js/d3.js"></script>
-<script type="text/javascript" src="js/detail.js"></script>
 </body>
 </html>
