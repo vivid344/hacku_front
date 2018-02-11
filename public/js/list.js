@@ -20,7 +20,7 @@ function fire_button(){
 	  text: "グループの皆さんが目標金額までお金を貯めることができませんでした。残念ですが、あなたが貯金したお金は全て「Yahoo！ネット募金」に募金されます。",
 	  icon: "error",
 	  buttons: {
-      	cancel: "キャンセル",
+      	cancel: "閉じる",
       	catch: {
       		text: "詳細を見る",
       		value: "catch",
@@ -50,7 +50,7 @@ function success_button(){
 	  text: "目標金額に達しました。貯めたお金でショッピングを楽しんでください",
 	  icon: "success",
 	  buttons: {
-      	cancel: "キャンセル",
+      	cancel: "閉じる",
       	catch: {
       		text: "詳細を見る",
       		value: "catch",
@@ -72,6 +72,9 @@ function success_button(){
 	    default:
 	  }
 	});
+}
+function detail_button(){
+	window.location.href = 'detail.html';
 }
 
 
