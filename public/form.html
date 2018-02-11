@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>グループ情報</title>
+    <title>グループ作成</title>
     <meta name="description" content="The HTML5 Herald">
     <meta name="author" content="SitePoint">
     <meta http-equiv="content-type" charset="utf-8">
@@ -14,8 +14,27 @@
     <script src="mdl/material.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="css/form.css">
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
-
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+    <script type="text/javascript"
+            src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+    <link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/smoothness/jquery-ui.css"
+          rel="stylesheet"/>
+    <style>
+        .fix_menu_smartphone {
+            height: 8%;
+            background-color: #3f51b5;
+            color: #FFFFFF;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 0;
+            width: 100%;
+            font-size: 25px;
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
     <![endif]-->
@@ -43,37 +62,22 @@
         </nav>
     </div>
 
-    <main class="mdl-layout__content">
-        <div class="page-content"><!-- Your content goes here -->
+    <main class="mdl-layout__content" style="z-index: 0">
+        <div class="page-content" style="text-align: center;padding-top: 5%"><!-- Your content goes here -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" id="sample3">
-                <label class="mdl-textfield__label" for="sample3">グループ名</label>
+                <input class="mdl-textfield__input" type="text" id="group">
+                <label class="mdl-textfield__label">グループ名</label>
             </div>
-            <ul class="demo-list-item mdl-list">
-                <li class="mdl-list__item">
-              <span class="mdl-list__item-primary-content">
-                グループ名
-              </span>
-                </li>
-                <form action="#">
-                    <div class="mdl-textfield mdl-js-textfield">
-                        <input class="mdl-textfield__input" type="text" id="sample1">
-                        <label class="mdl-textfield__label" for="sample1">Text...</label>
-                    </div>
-                </form>
-                <li class="mdl-list__item">
-              <span class="mdl-list__item-primary-content">
-                期限
-              </span>
-                </li>
-                <li class="mdl-list__item">
-              <span class="mdl-list__item-primary-content">
-                友達追加
-              </span>
-                </li>
-            </ul>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="datepicker">
+                <label class=" mdl-textfield__label">期限</label>
+            </div>
+            <script type="text/javascript" src="js/form.js"></script>
         </div>
     </main>
+    <div class="fix_menu_smartphone" onclick="make_group()">
+        <div style="padding-top: 4%">グループ作成</div>
+    </div>
 </div>
 </body>
 
