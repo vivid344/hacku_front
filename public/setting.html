@@ -1,0 +1,84 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>グループ作成</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+    <meta http-equiv="content-type" charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="mdl/material.min.css">
+    <script src="mdl/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="css/form.css">
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+    <script type="text/javascript"
+            src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+    <link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/smoothness/jquery-ui.css"
+          rel="stylesheet"/>
+    <style>
+        .fix_menu_smartphone {
+            height: 8%;
+            background-color: #3f51b5;
+            color: #FFFFFF;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 0;
+            width: 100%;
+            font-size: 25px;
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">目標設定</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+        </div>
+    </header>
+
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">メニュー</span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="list.html"><i class="material-icons">group_add</i> グループ一覧</a>
+            <a class="mdl-navigation__link" href="form.html"><i class="material-icons">group_add</i> グループ作成</a>
+            <a class="mdl-navigation__link" href="shopping.html"><i class="material-icons">shopping_cart</i> お金を使う</a>
+        </nav>
+    </div>
+
+    <main class="mdl-layout__content" style="z-index: 0">
+        <div class="page-content" style="text-align: center;padding-top: 5%"><!-- Your content goes here -->
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="number" id="goal">
+                <label class="mdl-textfield__label">目標金額</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="description">
+                <label class="mdl-textfield__label">目標</label>
+            </div>
+            <script type="text/javascript" src="js/setting.js"></script>
+        </div>
+    </main>
+    <div class="fix_menu_smartphone" onclick="set_desc()">
+        <div style="padding-top: 4%">目標設定！</div>
+    </div>
+</div>
+</body>
+
+</html>
