@@ -1,24 +1,20 @@
-function make_group() {
-    var group_name = $("#group").val();
-    var dead = $("#datepicker").val();
-    var today = new Date();
-    var dead_day = new Date(dead);
+function set_desc() {
+    var goal = $("#goal").val();
+    var description = $("#description").val();
 
-    if (!group_name) {
-        alert("グループ名を入力して下さい");
-    } else if (today > dead_day || !dead) {
-        alert("未来の日付を入力して下さい");
+    if (!goal) {
+        alert("目標金額を入力して下さい");
+    } else if (!description) {
+        alert("目標を入力して下さい");
     } else {
-        dead = dead.replace("/", "-");
-        dead = dead.replace("/", "-");
-        var tmp;//招待未完成
+        var tmp;
         $.ajax({
-            url: "http://35.201.145.29:62070/api/v1/make_group?name=" + group_name + "&date=" + dead + "&users=[]&user_id=" + sessionStorage.user_id,
+            url: "http://35.201.145.29:62070/api/v1/setting?user_id=" + sessionStorage.user_id + "&group_id=" + location.hash.replace("#", "") + "&price=" + goal + "&description=" + description,
             type: "POST",
             async: false,
             timeout: 10000,
         }).done(function (getdata, textStatus, jqXHR) {
-            location.href = "setting.html#" + getdata.group_id;
+            location.href = "detail.html#" + location.hash.replace("#", "");
         }).fail(function (jqXHR, textStatus, errorThrown) {
         });
     }

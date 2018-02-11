@@ -9,7 +9,6 @@ function approval_button(group_id) {
     //もし承認するなら
         .then((willDelete) => {
         if (willDelete) {
-            alert(group_id);
             $.ajax({
                 url: "http://35.201.145.29:62070/api/v1/invite_group?user_id="+sessionStorage.user_id+"&group_id="+group_id+"&status=1",
                 type: "POST",
@@ -19,7 +18,7 @@ function approval_button(group_id) {
                 tmp = getdata;
             }).fail(function (jqXHR, textStatus, errorThrown) {
             });
-            window.location.href = 'detail.html';
+            location.href = 'setting.html#'+group_id;
         }
     });
 }
