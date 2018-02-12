@@ -58,7 +58,7 @@ $(function () {
         },
         select: function (e, user) {
             users = users + user.item.id + ",";
-            $("#list").append("<div style='padding-top: 3%'>" + user.item.label + "</div>")
+            $("#list").append('<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><i class="material-icons mdl-list__item-icon">person</i>' + user.item.label + ' </span> </li>');
         },
         minLength: 1
     });
