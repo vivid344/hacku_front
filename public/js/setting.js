@@ -20,6 +20,11 @@ function set_desc() {
     }
 }
 
+function logout() {
+    sessionStorage.user_id = null;
+    location.href="index.html"
+}
+
 $(function () {
     $("#datepicker").datepicker();
     if ((navigator.userAgent.indexOf('iPhone') > 0

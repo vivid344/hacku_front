@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script type="text/javascript">
+        if (sessionStorage.user_id == "") {
+            location.href = "index.html";
+        }
+    </script>
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
@@ -56,6 +61,7 @@
             <a class="mdl-navigation__link" href="list.html"><i class="material-icons">group_add</i> グループ一覧</a>
             <a class="mdl-navigation__link" href="form.html"><i class="material-icons">group_add</i> グループ作成</a>
             <a class="mdl-navigation__link" href="shopping.html"><i class="material-icons">shopping_cart</i> お金を使う</a>
+            <a class="mdl-navigation__link" onclick="logout()"><i class="material-icons">keyboard_tab</i> ログアウト</a>
         </nav>
     </div>
 

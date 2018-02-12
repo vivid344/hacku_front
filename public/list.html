@@ -13,6 +13,11 @@
     <script src="js/list.js"></script>
     <script src="js/list2.js"></script>
     <script src="js/sweetalert.js"></script>
+    <script type="text/javascript">
+        if (sessionStorage.user_id == "") {
+            location.href = "index.html";
+        }
+    </script>
 </head>
 <body onload="init()">
 <!-- Always shows a header, even in smaller screens. -->
@@ -33,6 +38,7 @@
             <a class="mdl-navigation__link" href="list.html"><i class="material-icons">group_add</i> グループ一覧</a>
             <a class="mdl-navigation__link" href="form.html"><i class="material-icons">group_add</i> グループ作成</a>
             <a class="mdl-navigation__link" href="shopping.html"><i class="material-icons">shopping_cart</i> お金を使う</a>
+            <a class="mdl-navigation__link" onclick="logout()"><i class="material-icons">keyboard_tab</i> ログアウト</a>
         </nav>
     </div>
 

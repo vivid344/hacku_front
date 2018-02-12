@@ -1,3 +1,7 @@
+if (!sessionStorage.user_id) {
+    location.href = "index.html";
+}
+
 var users = "[";
 var g_id = location.hash.replace("#", "")
 
@@ -18,6 +22,11 @@ function make_group() {
     }).fail(function (jqXHR, textStatus, errorThrown) {
     });
 
+}
+
+function logout() {
+    sessionStorage.user_id = "";
+    location.href="index.html"
 }
 
 $(function () {

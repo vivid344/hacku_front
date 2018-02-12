@@ -1,4 +1,4 @@
-// サイズを設定
+/// / サイズを設定
 // ウィンドウサイズによって可変する
 var size = {
     width: 0,
@@ -56,6 +56,11 @@ function get_data() {
 
         render(svg, pie, arc, i);
     }
+}
+
+function logout() {
+    sessionStorage.user_id = "";
+    location.href="index.html"
 }
 
 function render(svg, pie, arc, x) {

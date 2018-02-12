@@ -30,6 +30,11 @@ function make_group() {
     }
 }
 
+function logout() {
+    sessionStorage.user_id = "";
+    location.href="index.html"
+}
+
 $(function () {
     $("#datepicker").datepicker();
     if ((navigator.userAgent.indexOf('iPhone') > 0
